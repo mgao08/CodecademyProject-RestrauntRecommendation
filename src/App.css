@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+/* Customized styles starts here */
+/* Small Screen */
+@media screen and (max-width: 720px) {
+body {
+   padding: 0 .5em;
+}
+}
+
+/* Large Screen */
+@media screen and (max-width: 1440px) {
+body {
+   padding: 0 1em;
+}
+}
+
+/* XLarge Screen */

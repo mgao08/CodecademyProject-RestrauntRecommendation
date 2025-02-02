@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
 
+// import Business from './components/Business/Business.js';
+import BusinessList from './components/BusinessList/BusinessList.js';
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const sampleBusiness = {
+      //imageSrc, name, address, city, state, zipcode, category, rating, reviewCount
+      imageSrc: 'https://img.freepik.com/free-photo/fried-chicken-breast-with-vegetables_140725-4649.jpg?t=st=1738488623~exp=1738492223~hmac=91ed570712f5ff0b1193532b005119e58e113a0d99ff900bb1d62d3cdc3ce5c0&w=900',
+      name: 'Stellar Bistro',
+      address: 'No. 88, Star Avenue',
+      city: 'Galaxy City',
+      state: 'Star Province',
+      zipcode: '88888',
+      category: 'Fusion Cuisine',
+      rating: '4.3',
+      reviewCount: 27
+   };
+
+   const sampleBusinessList = [];
+   for (let i = 0; i < 8; i++) {
+      sampleBusinessList.push(sampleBusiness);
+   }
+
+   // console.log(sampleBusinessList);
+
+   return (
+      // Test single business
+      // <Business props={sampleBusiness}/>
+
+      // Test multiple business
+      <BusinessList props={sampleBusinessList} />
+   );
 }
 
 export default App;
