@@ -2,6 +2,7 @@ import './App.css';
 
 // import Business from './components/Business/Business.js';
 import BusinessList from './components/BusinessList/BusinessList.js';
+import SearchBar from './components/SearchBar/SearchBar.js';
 
 function App() {
    const sampleBusiness = {
@@ -22,14 +23,32 @@ function App() {
       sampleBusinessList.push(sampleBusiness);
    }
 
+   const sampleItems = [
+      {
+         key: 1,
+         label: 'Best Match',
+         content: 'Best Match Contents'
+      },
+      {
+         key: 2,
+         label: 'Highest Rated',
+         content: 'Highest Rated Content'
+      },
+      {
+         key: 3,
+         label: 'Most Reviewed',
+         content: 'Most Reviewed Content'
+      }
+   ];
+
    // console.log(sampleBusinessList);
 
    return (
-      // Test single business
-      // <Business props={sampleBusiness}/>
-
-      // Test multiple business
-      <BusinessList props={sampleBusinessList} />
+      <>
+         <SearchBar props={sampleItems} />
+      
+         <BusinessList props={sampleBusinessList} />
+      </>
    );
 }
 

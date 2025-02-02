@@ -1,0 +1,45 @@
+:root {
+   --main-color: #d8a444;
+   --light-color: white;
+}
+
+.titleBanner {
+   background: var(--main-color);
+   height: 40px;
+   color: var(--light-color);
+   font-size: 1.5em;
+   text-align: center;
+}
+
+.searchInput {
+   background-image: url("https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141352.jpg?t=st=1738494269~exp=1738497869~hmac=e8b390a864d731513472fcf4c429c1c396b55d6aefafd37dad41b4866c24e914&w=1480");
+   min-height: 5em;
+   padding: 1em;
+}
+
+.searchTab {
+   margin: 0;
+}
+
+.searchTab * {
+   color: var(--light-color);
+}
+
+input {
+   height: 2.5em;
+}
+
+.Button {
+   width: 8em;
+   padding: 1.1em 2em;
+   background-color: var(--main-color);
+   color: var(--light-color);
+   font: 1.5em bolder;
+   margin: 1em auto;
+}
+
+@media screen and (min-width: 700px) {
+.searchTab {
+   margin: 0 25%;
+}
+}
