@@ -1,32 +1,37 @@
 :root {
-   --main-color: #d8a444;
-   --light-color: white;
+   --main-color: #cca353;
+   --border-color: #f0c36c;
+   --light-grey: #d4cfcf;
+   --white-color: #fff;
 }
 
 .titleBanner {
    background: var(--main-color);
    height: 55px;
-   color: var(--light-color);
+   color: var(--white-color);
    font-size: 2.5em;
    text-align: center;
 }
 
 .searchInput {
-   background-image: url("https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141352.jpg?t=st=1738494269~exp=1738497869~hmac=e8b390a864d731513472fcf4c429c1c396b55d6aefafd37dad41b4866c24e914&w=1480");
+   background-image: url('./background_search_mobile.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
    padding: 3em 1em;
    min-height: 40vh;
    justify-content: space-evenly;
 }
 
 .buttonGroup {
-   margin: 3rem;
+   padding: 2rem 0;
+   background-color: rgba(0, 0, 0, 40%);
 }
 
 .buttonGroup button {
    width: 100%;
    padding: 10px;
    background-color: transparent;
-   color: var(--light-color);
+   color: var(--light-grey);
    border: none;
 
    font-size: 1.1em;
@@ -34,6 +39,7 @@
 }
 
 .buttonGroup button:hover {
+   color: var(--white-color);
    cursor: pointer;
    transform: translateY(-.1em) scale(1.05);
    transition: all .2s;
@@ -43,8 +49,8 @@
    margin: 0;
 }
 
-.searchTab * {
-   color: var(--light-color);
+.searchTab button {
+   color: var(--white-color);
 }
 
 input {
@@ -59,20 +65,26 @@ input {
    background-color: var(--main-color);
    font-size: 1em;
    font-weight: bold;
-   color: var(--light-color);
+   color: var(--white-color);
    margin: 1em auto;
 }
 
 .goButton:hover {
-   background-color: var(--light-color);
-   color: var(--main-color);
+   background-color: var(--border-color);
+   border-color: var(--border-color);
+   color: var(--white-color);
    cursor: pointer;
    transition: all .2s;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 720px) {
+.searchInput {
+   background-image: url('./background_search_desktop.jpg');
+}
+
 .buttonGroup, .divider {
    margin: 0 20vw;
+   background-color: transparent;
 }
 
 .goButton {
