@@ -5,16 +5,38 @@
 
 .titleBanner {
    background: var(--main-color);
-   height: 40px;
+   height: 55px;
    color: var(--light-color);
-   font-size: 1.5em;
+   font-size: 2.5em;
    text-align: center;
 }
 
 .searchInput {
    background-image: url("https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141352.jpg?t=st=1738494269~exp=1738497869~hmac=e8b390a864d731513472fcf4c429c1c396b55d6aefafd37dad41b4866c24e914&w=1480");
-   min-height: 5em;
-   padding: 1em;
+   padding: 3em 1em;
+   min-height: 40vh;
+   justify-content: space-evenly;
+}
+
+.buttonGroup {
+   margin: 3rem;
+}
+
+.buttonGroup button {
+   width: 100%;
+   padding: 10px;
+   background-color: transparent;
+   color: var(--light-color);
+   border: none;
+
+   font-size: 1.1em;
+   font-weight: bold;
+}
+
+.buttonGroup button:hover {
+   cursor: pointer;
+   transform: translateY(-.1em) scale(1.05);
+   transition: all .2s;
 }
 
 .searchTab {
@@ -29,17 +51,31 @@ input {
    height: 2.5em;
 }
 
-.Button {
-   width: 8em;
-   padding: 1.1em 2em;
+.goButton {
+   width: 40vw;
+   padding: .8em 1.5em;
+   border: 3px solid var(--main-color);
+   border-radius: 5px;
    background-color: var(--main-color);
+   font-size: 1em;
+   font-weight: bold;
    color: var(--light-color);
-   font: 1.5em bolder;
    margin: 1em auto;
 }
 
+.goButton:hover {
+   background-color: var(--light-color);
+   color: var(--main-color);
+   cursor: pointer;
+   transition: all .2s;
+}
+
 @media screen and (min-width: 700px) {
-.searchTab {
-   margin: 0 25%;
+.buttonGroup, .divider {
+   margin: 0 20vw;
+}
+
+.goButton {
+   max-width: 150px;
 }
 }

@@ -1,4 +1,4 @@
-import './App.css';
+import styles from './App.module.css';
 
 // import Business from './components/Business/Business.js';
 import BusinessList from './components/BusinessList/BusinessList.js';
@@ -13,7 +13,7 @@ function App() {
       city: 'Galaxy City',
       state: 'Star Province',
       zipcode: '88888',
-      category: 'Fusion Cuisine',
+      category: 'Fusion',
       rating: '4.3',
       reviewCount: 27
    };
@@ -23,31 +23,19 @@ function App() {
       sampleBusinessList.push(sampleBusiness);
    }
 
-   const sampleItems = [
-      {
-         key: 1,
-         label: 'Best Match',
-         content: 'Best Match Contents'
-      },
-      {
-         key: 2,
-         label: 'Highest Rated',
-         content: 'Highest Rated Content'
-      },
-      {
-         key: 3,
-         label: 'Most Reviewed',
-         content: 'Most Reviewed Content'
-      }
-   ];
-
    // console.log(sampleBusinessList);
 
    return (
       <>
-         <SearchBar props={sampleItems} />
+         <SearchBar
+            className={styles.searchBar}
+         />
       
-         <BusinessList props={sampleBusinessList} />
+         <div className={styles.businessList}>
+            <BusinessList
+               props={sampleBusinessList}
+            />
+         </div>
       </>
    );
 }

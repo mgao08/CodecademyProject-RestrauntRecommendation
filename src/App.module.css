@@ -38,14 +38,6 @@
 }
 
 /* Customized styles starts here */
-/* Small Screen */
-@media screen and (max-width: 720px) {
-
+.businessList {
+   padding: 10vh 15vw;
 }
-
-/* Large Screen */
-@media screen and (max-width: 1440px) {
-
-}
-
-/* XLarge Screen */
