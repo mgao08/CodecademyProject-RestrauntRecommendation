@@ -1,7 +1,8 @@
-import './App.css';
+import styles from './App.module.css';
 
 // import Business from './components/Business/Business.js';
 import BusinessList from './components/BusinessList/BusinessList.js';
+import SearchBar from './components/SearchBar/SearchBar.js';
 
 function App() {
    const sampleBusiness = {
@@ -12,7 +13,7 @@ function App() {
       city: 'Galaxy City',
       state: 'Star Province',
       zipcode: '88888',
-      category: 'Fusion Cuisine',
+      category: 'Fusion',
       rating: '4.3',
       reviewCount: 27
    };
@@ -25,11 +26,17 @@ function App() {
    // console.log(sampleBusinessList);
 
    return (
-      // Test single business
-      // <Business props={sampleBusiness}/>
-
-      // Test multiple business
-      <BusinessList props={sampleBusinessList} />
+      <>
+         <SearchBar
+            className={styles.searchBar}
+         />
+      
+         <div className={styles.businessList}>
+            <BusinessList
+               props={sampleBusinessList}
+            />
+         </div>
+      </>
    );
 }
 
