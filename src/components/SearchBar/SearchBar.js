@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Row, Col, Flex, Input } from 'antd';
 import styles from './SearchBar.module.css';
+// import RetrieveBusiness from '../../utils/RetrieveBusiness.js';
 
-function SearchBar(props) {
-   // TODO: change button.value for API calls
+function SearchBar({ handleChange, handleSubmit }) {
 
-   const [sortOption, setSortOption] = useState("HighestRated");
+   /*
+   const [sortOption, setSortOption] = useState("rating");
    const [businessName, setBusinessName] = useState("");
    const [businessLocation, setBusinessLocation] = useState("");
 
@@ -33,9 +34,12 @@ function SearchBar(props) {
    }
 
    const handleSubmit = () => {
-      // TODO: transfer to API call
-      console.log(`Searching by ${sortOption}, ${businessName}, ${businessLocation}`);
+      const result = RetrieveBusiness(businessName, businessLocation, sortOption);
+      result.then(data => {   // extract data from Promise
+         return data;
+      });
    }
+   */
 
    return (
       <>
@@ -47,18 +51,18 @@ function SearchBar(props) {
                className={styles.buttonGroup}
             >
                <Col sm={24} md={4}>
-                  <button
+                  <button aria-pressed
                      name='sortOption'
-                     value='BestMatch'
+                     value='best_match'
                      onClick={handleChange}
                      type='text'>
                         Best Match
                   </button>
                </Col>
                <Col sm={24} md={4}>
-                  <button aria-pressed
+                  <button
                      name='sortOption'
-                     value='HighestRated'
+                     value='rating'
                      onClick={handleChange}
                      type='text'>
                         Highest Rated
@@ -67,7 +71,7 @@ function SearchBar(props) {
                <Col sm={24} md={4}>
                   <button
                      name='sortOption'
-                     value='MostReviewed'
+                     value='review_count'
                      onClick={handleChange}
                      type='text'>
                         Most Reviewed

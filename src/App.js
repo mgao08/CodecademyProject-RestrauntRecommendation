@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import styles from './App.module.css';
 
 // import Business from './components/Business/Business.js';
 import BusinessList from './components/BusinessList/BusinessList.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
+import RetrieveBusiness from './utils/RetrieveBusiness.js';
+
 
 function App() {
    const sampleBusiness = {
@@ -23,12 +26,50 @@ function App() {
       sampleBusinessList.push(sampleBusiness);
    }
 
-   // console.log(sampleBusinessList);
+   let businessList = [];
+
+   // handle functions
+   const [sortOption, setSortOption] = useState("rating");
+   const [businessName, setBusinessName] = useState("");
+   const [businessLocation, setBusinessLocation] = useState("");
+   
+   const handleChange = ({ target }) => {
+      const { name, value } = target;
+      
+      switch (name) {
+         case 'sortOption':
+            // Set visual effect for activated button
+            const btns = document.querySelectorAll(`[name=${name}]`);
+            btns.forEach(btn => btn.removeAttribute('aria-pressed'));
+            target.setAttribute('aria-pressed', true);
+            setSortOption(value);
+            break;
+         case 'businessName':
+            setBusinessName(value);
+            break;
+         case 'businessLocation':
+            setBusinessLocation(value);
+            break;
+         default:
+            console.log(`ERROR: Unknown search filter ${name}`);
+            break;
+      }
+   }
+
+   const handleSubmit = () => {
+      const result = RetrieveBusiness(businessName, businessLocation, sortOption);
+      result.then(data => {   // extract data from Promise
+         businessList = data;
+         console.log(businessList);
+      });
+   }
 
    return (
       <>
          <SearchBar
             className={styles.searchBar}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
          />
       
          <div className={styles.businessList}>
