@@ -45,6 +45,13 @@
    transition: all .2s;
 }
 
+.buttonGroup button[aria-pressed] {
+   color: var(--main-color);
+   cursor: pointer;
+   transform: translateY(-.1em) scale(1.05);
+   transition: all .2s;
+}
+
 .searchTab {
    margin: 0;
 }
