@@ -2,20 +2,6 @@ import React from 'react';
 import { Card, Col, Row } from "antd";
 
 function Business({props}) {
-   //    image_url: 'https://img.freepik.com/free-photo/fried-chicken-breast-with-vegetables_140725-4649.jpg?t=st=1738488623~exp=1738492223~hmac=91ed570712f5ff0b1193532b005119e58e113a0d99ff900bb1d62d3cdc3ce5c0&w=900',
-   //    name: 'Stellar Bistro',
-   //    location: {
-   //       country: "US",
-   //       display_address: ["No 3 Rd", "Olive street", "Galaxy City, BC 88888"]
-   //    },
-   //    categories: [
-   //       {
-   //          alias: "burgers",
-   //          title: "Burgers"
-   //       }
-   //    ],
-   //    rating: 4.3,
-   //    review_count: 27
 
    const ulNoDot={
       "list-style-type": "none",

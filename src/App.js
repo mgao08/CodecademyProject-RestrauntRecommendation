@@ -1,11 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './App.module.css';
 
-// import Business from './components/Business/Business.js';
 import BusinessList from './components/BusinessList/BusinessList.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
 import RetrieveBusiness from './utils/RetrieveBusiness.js';
-
 
 function App() {
    const sampleBusiness = {
@@ -25,17 +23,17 @@ function App() {
       review_count: 27
    };
 
-   const sampleBusinessList = [];
+   let sampleBusinessList = [];
    for (let i = 0; i < 8; i++) {
       sampleBusinessList.push(sampleBusiness);
    }
 
-   let businessList = [];
-
    // handle functions
-   const [sortOption, setSortOption] = useState("rating");
+   const [sortOption, setSortOption] = useState("best_match");
    const [businessName, setBusinessName] = useState("");
    const [businessLocation, setBusinessLocation] = useState("");
+
+   const [infoList, setInfoList] = useState(sampleBusinessList);
    
    const handleChange = ({ target }) => {
       const { name, value } = target;
@@ -63,10 +61,11 @@ function App() {
    const handleSubmit = () => {
       const result = RetrieveBusiness(businessName, businessLocation, sortOption);
       result.then(data => {   // extract data from Promise
-         businessList = data;
-         console.log(businessList);
+         // TODO: make BusinessList rerender with new data
+         setInfoList(data);
       });
    }
+
 
    return (
       <>
@@ -76,10 +75,8 @@ function App() {
             handleSubmit={handleSubmit}
          />
       
-         <div className={styles.businessList}>
-            <BusinessList
-               props={sampleBusinessList}
-            />
+         <div className={styles.businessList}  id="listHolder">
+            <BusinessList props={infoList}/>
          </div>
       </>
    );
