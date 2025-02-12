@@ -41,3 +41,9 @@
 .businessList {
    padding: 10vh 15vw;
 }
+
+.hintText {
+   margin: 0;
+   color: grey;
+   text-align: center;
+}
