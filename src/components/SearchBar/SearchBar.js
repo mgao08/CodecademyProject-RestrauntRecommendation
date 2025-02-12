@@ -1,45 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Row, Col, Flex, Input } from 'antd';
 import styles from './SearchBar.module.css';
-// import RetrieveBusiness from '../../utils/RetrieveBusiness.js';
 
 function SearchBar({ handleChange, handleSubmit }) {
-
-   /*
-   const [sortOption, setSortOption] = useState("rating");
-   const [businessName, setBusinessName] = useState("");
-   const [businessLocation, setBusinessLocation] = useState("");
-
-   const handleChange = ({ target }) => {
-      const { name, value } = target;
-      
-      switch (name) {
-         case 'sortOption':
-            // Set visual effect for activated button
-            const btns = document.querySelectorAll(`[name=${name}]`);
-            btns.forEach(btn => btn.removeAttribute('aria-pressed'));
-            target.setAttribute('aria-pressed', true);
-            setSortOption(value);
-            break;
-         case 'businessName':
-            setBusinessName(value);
-            break;
-         case 'businessLocation':
-            setBusinessLocation(value);
-            break;
-         default:
-            console.log(`ERROR: Unknown search filter ${name}`);
-            break;
-      }
-   }
-
-   const handleSubmit = () => {
-      const result = RetrieveBusiness(businessName, businessLocation, sortOption);
-      result.then(data => {   // extract data from Promise
-         return data;
-      });
-   }
-   */
 
    return (
       <>

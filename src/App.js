@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './App.module.css';
+import { ConfigProvider } from 'antd';
 
 import BusinessList from './components/BusinessList/BusinessList.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
@@ -10,8 +11,11 @@ function App() {
       image_url: 'https://img.freepik.com/free-photo/fried-chicken-breast-with-vegetables_140725-4649.jpg?t=st=1738488623~exp=1738492223~hmac=91ed570712f5ff0b1193532b005119e58e113a0d99ff900bb1d62d3cdc3ce5c0&w=900',
       name: 'Stellar Bistro',
       location: {
+         address1: "No 3 Rd",
+         city: "Galaxy City",
+         state: "VA",
          country: "US",
-         display_address: ["No 3 Rd", "Olive street", "Galaxy City, BC 88888"]
+         zip_code: "88888"
       },
       categories: [
          {
@@ -61,14 +65,26 @@ function App() {
    const handleSubmit = () => {
       const result = RetrieveBusiness(businessName, businessLocation, sortOption);
       result.then(data => {   // extract data from Promise
-         // TODO: make BusinessList rerender with new data
-         setInfoList(data);
+         if(data) {
+            console.log(data);   // TODO: remove after testing
+            setInfoList(data);
+         } else {
+            console.log("data fetching failed, consider bad searching terms");
+         }
       });
    }
 
 
    return (
-      <>
+      <ConfigProvider
+         theme={{
+            components: {
+               Card: {
+                  bodyPadding: 0,
+               }
+            }
+         }}
+      >
          <SearchBar
             className={styles.searchBar}
             handleChange={handleChange}
@@ -78,7 +94,7 @@ function App() {
          <div className={styles.businessList}  id="listHolder">
             <BusinessList props={infoList}/>
          </div>
-      </>
+      </ConfigProvider>
    );
 }
 

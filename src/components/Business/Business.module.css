@@ -1,0 +1,38 @@
+:root {
+   --main-color: #cca353;
+   --border-color: #f0c36c;
+   --light-grey: #d4cfcf;
+   --white-color: #fff;
+}
+
+.cardCover {
+   height: 30vh;
+   object-fit: cover;
+}
+
+.cardContainer h1 {
+   font-size: 1.5em;
+   line-height: .8em;
+   margin-bottom: 0;
+}
+
+.businessInfo, .businessRating {
+   color: black;
+   list-style-type: none;
+   padding-left: 0;
+   line-height: 1.2em;
+}
+
+.businessRating {
+   text-align: end;
+}
+
+.category, .rating {
+   color: var(--main-color);
+   font-weight: bolder;
+}
+
+.category {
+   font-size: 1.2em;
+   text-transform: uppercase;
+}
