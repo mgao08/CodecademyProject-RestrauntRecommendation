@@ -5,15 +5,12 @@ const yelpBaseUrl = "https://api.yelp.com/v3/businesses/";
 // Use only for CORS error
 const corsAnywhereBaseUrl = "https://cors-anywhere.herokuapp.com/";
 
-// Number of API calls per request
-const fetchLimit = 6;
-
-function RetrieveBusiness(searchTerms, location, sortByOption) {
+function RetrieveBusiness(searchTerms, location, sortByOption, fetchNum) {
    const forgeUrl = () => {
       const locationEndpoint = `location=${location}`;
       const termEndpoint = `term=${searchTerms}`;
       const sortEndpoint = `sort_by=${sortByOption}`;
-      const limitEndpoint = `limit=${fetchLimit}`;
+      const limitEndpoint = `limit=${fetchNum}`;
       const searchEndpoint = `search?${locationEndpoint}&${termEndpoint}&${sortEndpoint}&${limitEndpoint}`;
       const fullUrl = `${yelpBaseUrl}${searchEndpoint}&api_key=${yelpKey}`;
 

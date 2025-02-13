@@ -16,6 +16,7 @@ function App() {
 
    const [infoList, setInfoList] = useState();
    const [loading, setLoading] = useState(false);
+   const [fetchNum, setFetchNum] = useState(6);
    
    const handleChange = ({ target }) => {
       const { name, value } = target;
@@ -42,7 +43,7 @@ function App() {
 
    const handleSubmit = () => {
       setLoading(true);
-      const result = RetrieveBusiness(businessName, businessLocation, sortOption);
+      const result = RetrieveBusiness(businessName, businessLocation, sortOption, fetchNum);
       result.then(data => {   // extract data from Promise
          if(data) {
             setLoading(false);
@@ -71,7 +72,7 @@ function App() {
          />
       
          <div className={styles.businessList}  id="listHolder">
-            {!loading? null : <LoadingCardList numOfCards={6} loading={loading} />}
+            {!loading? null : <LoadingCardList numOfCards={fetchNum} loading={loading} />}
             {infoList? <BusinessList props={infoList}/> : <h2 className={styles.hintText}>Search By Typing Business Name & Address Above</h2>}
          </div>
       </ConfigProvider>
